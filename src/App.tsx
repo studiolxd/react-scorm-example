@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { ScormProvider } from '@studiolxd/react-scorm';
 import type { ScormVersion } from '@studiolxd/react-scorm';
+import { LifecycleSection } from './sections/LifecycleSection';
+import { LearnerSection } from './sections/LearnerSection';
+import { StatusSection } from './sections/StatusSection';
+import { ScoreSection } from './sections/ScoreSection';
 import './App.css';
 
 export const TABS = [
@@ -42,12 +46,22 @@ function ScormDemoShell({ activeTab, onTabChange }: ScormDemoShellProps) {
       </nav>
 
       <main className="tab-content" id="tab-panel">
-        <div className="placeholder-section">
-          <div className="placeholder-badge">Coming in next PR</div>
-          <p className="placeholder-text">
-            <code>{activeTab}</code> section will appear here.
-          </p>
-        </div>
+        {activeTab === 'lifecycle' && <LifecycleSection />}
+        {activeTab === 'learner' && <LearnerSection />}
+        {activeTab === 'status' && <StatusSection />}
+        {activeTab === 'score' && <ScoreSection />}
+        {(activeTab === 'location' ||
+          activeTab === 'objectives' ||
+          activeTab === 'interactions' ||
+          activeTab === 'comments' ||
+          activeTab === 'advanced') && (
+          <div className="placeholder-section">
+            <div className="placeholder-badge">Coming in next PR</div>
+            <p className="placeholder-text">
+              <code>{activeTab}</code> section will appear here.
+            </p>
+          </div>
+        )}
       </main>
     </div>
   );

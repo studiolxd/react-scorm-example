@@ -5,6 +5,10 @@ import { LifecycleSection } from './sections/LifecycleSection';
 import { LearnerSection } from './sections/LearnerSection';
 import { StatusSection } from './sections/StatusSection';
 import { ScoreSection } from './sections/ScoreSection';
+import { LocationSection } from './sections/LocationSection';
+import { ObjectivesSection } from './sections/ObjectivesSection';
+import { InteractionsSection } from './sections/InteractionsSection';
+import { CommentsSection } from './sections/CommentsSection';
 import './App.css';
 
 export const TABS = [
@@ -50,15 +54,15 @@ function ScormDemoShell({ activeTab, onTabChange }: ScormDemoShellProps) {
         {activeTab === 'learner' && <LearnerSection />}
         {activeTab === 'status' && <StatusSection />}
         {activeTab === 'score' && <ScoreSection />}
-        {(activeTab === 'location' ||
-          activeTab === 'objectives' ||
-          activeTab === 'interactions' ||
-          activeTab === 'comments' ||
-          activeTab === 'advanced') && (
+        {activeTab === 'location' && <LocationSection />}
+        {activeTab === 'objectives' && <ObjectivesSection />}
+        {activeTab === 'interactions' && <InteractionsSection />}
+        {activeTab === 'comments' && <CommentsSection />}
+        {activeTab === 'advanced' && (
           <div className="placeholder-section">
             <div className="placeholder-badge">Coming in next PR</div>
             <p className="placeholder-text">
-              <code>{activeTab}</code> section will appear here.
+              <code>advanced</code> section will appear here.
             </p>
           </div>
         )}

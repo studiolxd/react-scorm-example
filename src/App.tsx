@@ -9,6 +9,7 @@ import { LocationSection } from './sections/LocationSection';
 import { ObjectivesSection } from './sections/ObjectivesSection';
 import { InteractionsSection } from './sections/InteractionsSection';
 import { CommentsSection } from './sections/CommentsSection';
+import { AdvancedSection } from './sections/AdvancedSection';
 import './App.css';
 
 export const TABS = [
@@ -58,14 +59,7 @@ function ScormDemoShell({ activeTab, onTabChange }: ScormDemoShellProps) {
         {activeTab === 'objectives' && <ObjectivesSection />}
         {activeTab === 'interactions' && <InteractionsSection />}
         {activeTab === 'comments' && <CommentsSection />}
-        {activeTab === 'advanced' && (
-          <div className="placeholder-section">
-            <div className="placeholder-badge">Coming in next PR</div>
-            <p className="placeholder-text">
-              <code>advanced</code> section will appear here.
-            </p>
-          </div>
-        )}
+        {activeTab === 'advanced' && <AdvancedSection />}
       </main>
     </div>
   );
